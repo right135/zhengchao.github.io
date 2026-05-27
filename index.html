@@ -1,12 +1,372 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
-	<body>
-		<script type="text/javascript">
-			window.location.href="王正超-西北农林科技大学.pdf"
-		</script>
-	</body>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>王正超 - 个人简历</title>
+	<style>
+		:root {
+			--text: #171717;
+			--muted: #5f6368;
+			--line: #d9dde3;
+			--accent: #0f766e;
+			--accent-soft: #e7f4f2;
+			--paper: #ffffff;
+			--bg: #f5f7f8;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			color: var(--text);
+			background: var(--bg);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+			line-height: 1.65;
+		}
+
+		a {
+			color: var(--accent);
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		.page {
+			width: min(980px, calc(100% - 32px));
+			margin: 32px auto;
+			padding: 42px 62px 50px;
+			background: var(--paper);
+			border: 1px solid var(--line);
+			box-shadow: 0 18px 48px rgba(24, 32, 38, 0.08);
+		}
+
+		.header {
+			display: grid;
+			grid-template-columns: 1fr 112px;
+			gap: 28px;
+			align-items: start;
+			padding-bottom: 24px;
+			border-bottom: 2px solid var(--text);
+		}
+
+		.profile-photo {
+			width: 112px;
+			aspect-ratio: 3 / 4;
+			object-fit: cover;
+			border: 1px solid var(--line);
+			background: #fff;
+		}
+
+		h1 {
+			margin: 0 0 8px;
+			font-size: 40px;
+			line-height: 1.15;
+			letter-spacing: 0;
+		}
+
+		.title {
+			margin: 0 0 14px;
+			font-size: 18px;
+			color: var(--muted);
+			font-weight: 600;
+		}
+
+		.contact {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px 16px;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			color: var(--muted);
+			font-size: 15px;
+		}
+
+		.badge-group {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			margin-top: 8px;
+		}
+
+		.badge {
+			display: inline-flex;
+			align-items: center;
+			min-height: 32px;
+			padding: 5px 10px;
+			border: 1px solid #b7d9d4;
+			background: var(--accent-soft);
+			color: #0b5c56;
+			border-radius: 4px;
+			font-size: 14px;
+			font-weight: 600;
+			white-space: nowrap;
+		}
+
+		.section {
+			padding-top: 20px;
+		}
+
+		.section-title {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin: 0 0 12px;
+			font-size: 20px;
+			line-height: 1.25;
+		}
+
+		.section-title::after {
+			content: "";
+			height: 1px;
+			flex: 1;
+			background: var(--line);
+		}
+
+		.entry {
+			margin-top: 14px;
+		}
+
+		.entry-head {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 16px;
+			align-items: baseline;
+			font-weight: 700;
+		}
+
+		.entry-meta {
+			color: var(--muted);
+			font-size: 14px;
+			white-space: nowrap;
+		}
+
+		.subline {
+			margin: 4px 0 0;
+			color: var(--muted);
+			font-weight: 600;
+		}
+
+		ul {
+			margin: 8px 0 0 22px;
+			padding: 0;
+		}
+
+		li {
+			margin: 4px 0;
+		}
+
+		.summary {
+			margin: 0;
+			color: #2d3135;
+		}
+
+		.publication {
+			margin-top: 10px;
+			padding-left: 16px;
+			border-left: 3px solid var(--accent);
+		}
+
+		.publication strong {
+			display: block;
+			line-height: 1.45;
+		}
+
+		.publication>span {
+			display: block;
+			margin-top: 3px;
+		}
+
+		.pub-status {
+			color: var(--muted);
+		}
+
+		.project-title {
+			font-weight: 700;
+		}
+
+		.skills {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 10px 18px;
+			margin-top: 10px;
+		}
+
+		.skill-item {
+			padding: 10px 12px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			background: #fbfcfd;
+		}
+
+		@media (max-width: 720px) {
+			.page {
+				width: 100%;
+				margin: 0;
+				padding: 28px 20px 36px;
+				border: 0;
+				box-shadow: none;
+			}
+
+			.header {
+				grid-template-columns: 1fr;
+				gap: 16px;
+			}
+
+			.profile-photo {
+				width: 96px;
+			}
+
+			.entry-head {
+				grid-template-columns: 1fr;
+				gap: 10px;
+			}
+
+			h1 {
+				font-size: 34px;
+			}
+
+			.entry-meta {
+				white-space: normal;
+			}
+
+			.skills {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		@media print {
+			body {
+				background: #fff;
+			}
+
+			.page {
+				width: auto;
+				margin: 0;
+				padding: 26px 34px;
+				border: 0;
+				box-shadow: none;
+			}
+
+			a {
+				color: var(--text);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<main class="page">
+		<header class="header">
+			<div>
+				<h1>王正超</h1>
+				<p class="title">博士生 | 天津大学 | 计算机科学与技术</p>
+				<ul class="contact">
+					<li>TEL / 微信: 19591282322</li>
+					<li>Email: right135@tju.edu.cn</li>
+					<li>英语水平: CET-4 / CET-6</li>
+				</ul>
+				<div class="badge-group" aria-label="研究方向">
+					<span class="badge">Agent System Inference</span>
+					<span class="badge">RAG Serving</span>
+					<span class="badge">KVCache Reuse</span>
+					<span class="badge">Workload Analysis</span>
+				</div>
+			</div>
+			<img class="profile-photo" src="imgs/证件照wzc.jpg" alt="王正超证件照">
+		</header>
+
+		<section class="section" aria-labelledby="profile">
+			<h2 class="section-title" id="profile">个人简介</h2>
+			<p class="summary">
+				研究聚焦 Agent 系统推理、RAG Serving 与 KVCache 复用，具备真实负载分析和大模型应用平台落地经验。
+			</p>
+		</section>
+
+		<section class="section" aria-labelledby="education">
+			<h2 class="section-title" id="education">教育背景</h2>
+			<div class="entry">
+				<div class="entry-head">
+					<div>天津大学</div>
+					<div class="entry-meta">硕博连读 | 2024.09 - 2030.07</div>
+				</div>
+				<p class="subline">计算机科学与技术 | Agent System Inference</p>
+			</div>
+			<div class="entry">
+				<div class="entry-head">
+					<div>西北农林科技大学</div>
+					<div class="entry-meta">本科 | 2020.09 - 2024.07</div>
+				</div>
+				<p class="subline">信息工程学院 | 软件工程</p>
+			</div>
+		</section>
+
+		<section class="section" aria-labelledby="publications">
+			<h2 class="section-title" id="publications">科研成果</h2>
+			<div class="publication">
+				<strong>SuperRAG: Document-oriented KVCache Reuse for Efficient Retrieval-Augmented Generation
+					Serving</strong>
+				<span>提出面向文档的 KVCache 复用机制，降低 RAG Serving 中重复文档上下文带来的推理开销。<span class="pub-status">投递 ATC。</span></span>
+			</div>
+			<div class="publication">
+				<strong>RAGPULSE: A Real-World RAG Workload Capturing Authentic Temporal Reuse Patterns for Efficient
+					Serving</strong>
+				<span>构建真实 RAG 工作负载，刻画业务场景中的时间复用模式，为缓存与服务调度优化提供数据支撑。<span class="pub-status">投递 EMNLP。</span></span>
+			</div>
+		</section>
+
+		<section class="section" aria-labelledby="projects">
+			<h2 class="section-title" id="projects">项目经历</h2>
+			<div class="entry">
+				<div class="entry-head">
+					<div class="project-title">天津大学天问大模型（负责人）</div>
+					<div class="entry-meta"><a href="https://twen.ai" target="_blank"
+							rel="noopener noreferrer">twen.ai</a></div>
+				</div>
+				<ul>
+					<li>参与天津大学大模型应用平台建设，围绕智能问答、知识检索、服务推理与应用接入开展系统开发。</li>
+					<li>结合 RAG 与 Agent 能力，支持校园场景下的知识服务、任务处理和多轮交互体验。</li>
+				</ul>
+			</div>
+			<div class="entry">
+				<div class="entry-head">
+					<div class="project-title">天津大学 AI 辅导员“小天老师”（负责人）</div>
+					<div class="entry-meta">智能校园应用</div>
+				</div>
+				<ul>
+					<li>参与面向学生服务的 AI 辅导员系统开发，支持校园问答、事务咨询、政策解读和个性化辅助。</li>
+					<li>围绕真实校园业务需求，优化知识组织、问答准确性和交互流程，提升学生获取信息与办理事务的效率。</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section" aria-labelledby="competitions">
+			<h2 class="section-title" id="competitions">竞赛与实践</h2>
+			<ul>
+				<li>2021 年 ACM-ICPC 陕西省大学生程序设计竞赛铜牌。</li>
+				<li>2022 年 ACM-ICPC 陕西省大学生程序设计竞赛银牌。</li>
+				<li>2022 团体程序设计天梯赛全国总决赛个人三等奖。</li>
+				<li>2022 RoboCom 机器人开发者大赛 CAIP 编程设计陕西省赛一等奖、全国总决赛三等奖。</li>
+				<li>2022 年第四届全国高校计算机能力挑战赛 C++ 组全国一等奖。</li>
+			</ul>
+		</section>
+
+		<section class="section" aria-labelledby="skills">
+			<h2 class="section-title" id="skills">专业技能</h2>
+			<div class="skills">
+				<div class="skill-item">熟悉 Agent system infer、RAG Serving、KVCache 复用与模型服务优化。</div>
+				<div class="skill-item">熟悉真实 RAG workload 分析，关注时间复用模式与服务系统瓶颈定位。</div>
+				<div class="skill-item">熟悉 Claude、Codex、Copilot 等 vibe coding 工具，能高效完成原型开发与工程迭代。</div>
+				<div class="skill-item">具备大模型应用平台、校园智能体与知识问答系统开发经验。</div>
+			</div>
+		</section>
+	</main>
+</body>
+
 </html>
