@@ -26,6 +26,7 @@
 			background: var(--bg);
 			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
 			line-height: 1.65;
+			-webkit-text-size-adjust: 100%;
 		}
 
 		a {
@@ -145,12 +146,14 @@
 			color: var(--muted);
 			font-size: 14px;
 			white-space: nowrap;
+			overflow-wrap: anywhere;
 		}
 
 		.subline {
 			margin: 4px 0 0;
 			color: var(--muted);
 			font-weight: 600;
+			overflow-wrap: anywhere;
 		}
 
 		ul {
@@ -211,18 +214,19 @@
 			.page {
 				width: 100%;
 				margin: 0;
-				padding: 28px 20px 36px;
+				padding: 24px 18px 34px;
 				border: 0;
 				box-shadow: none;
 			}
 
 			.header {
-				grid-template-columns: 1fr;
-				gap: 16px;
+				grid-template-columns: 1fr 82px;
+				gap: 14px;
+				padding-bottom: 20px;
 			}
 
 			.profile-photo {
-				width: 96px;
+				width: 82px;
 			}
 
 			.entry-head {
@@ -231,29 +235,232 @@
 			}
 
 			h1 {
-				font-size: 34px;
+				font-size: 32px;
+				margin-bottom: 6px;
+			}
+
+			.title {
+				font-size: 16px;
+				margin-bottom: 10px;
+			}
+
+			.contact {
+				gap: 4px 12px;
+				font-size: 14px;
+			}
+
+			.badge-group {
+				gap: 6px;
+				margin-top: 10px;
+			}
+
+			.badge {
+				min-height: 28px;
+				padding: 4px 8px;
+				font-size: 12px;
+			}
+
+			.section {
+				padding-top: 18px;
+			}
+
+			.section-title {
+				font-size: 18px;
+				margin-bottom: 10px;
+			}
+
+			.entry {
+				margin-top: 12px;
 			}
 
 			.entry-meta {
 				white-space: normal;
 			}
 
+			ul {
+				margin-left: 18px;
+			}
+
 			.skills {
 				grid-template-columns: 1fr;
+				gap: 8px;
+			}
+
+			.skill-item {
+				padding: 9px 10px;
+			}
+		}
+
+		@media (max-width: 420px) {
+			.page {
+				padding: 22px 14px 30px;
+			}
+
+			.header {
+				grid-template-columns: 1fr 74px;
+				gap: 10px;
+			}
+
+			.profile-photo {
+				width: 74px;
+			}
+
+			h1 {
+				font-size: 28px;
+			}
+
+			.title,
+			.contact {
+				font-size: 13px;
+			}
+
+			.badge {
+				font-size: 11px;
+			}
+
+			body {
+				line-height: 1.58;
 			}
 		}
 
 		@media print {
+			@page {
+				size: A4;
+				margin: 10mm 12mm;
+			}
+
+			* {
+				-webkit-print-color-adjust: exact;
+				print-color-adjust: exact;
+			}
+
 			body {
 				background: #fff;
+				font-size: 13px;
+				line-height: 1.52;
 			}
 
 			.page {
 				width: auto;
+				min-height: 277mm;
 				margin: 0;
-				padding: 26px 34px;
+				padding: 0;
 				border: 0;
 				box-shadow: none;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
+			.header {
+				grid-template-columns: 1fr 112px;
+				gap: 22px;
+				padding-bottom: 15px;
+			}
+
+			.profile-photo {
+				width: 112px;
+			}
+
+			h1 {
+				font-size: 35px;
+				margin-bottom: 6px;
+			}
+
+			.title {
+				font-size: 15.5px;
+				margin-bottom: 8px;
+			}
+
+			.contact {
+				gap: 5px 17px;
+				font-size: 12.5px;
+			}
+
+			.badge-group {
+				gap: 7px;
+				margin-top: 9px;
+			}
+
+			.badge {
+				min-height: 25px;
+				padding: 3px 9px;
+				font-size: 11.5px;
+			}
+
+			.section {
+				padding-top: 13px;
+				break-inside: avoid;
+			}
+
+			.section-title {
+				font-size: 16.5px;
+				margin-bottom: 6px;
+			}
+
+			.entry {
+				margin-top: 8px;
+				break-inside: avoid;
+			}
+
+			.entry-head {
+				gap: 10px;
+			}
+
+			.entry-meta {
+				font-size: 11.5px;
+			}
+
+			.subline {
+				margin-top: 2px;
+			}
+
+			ul {
+				margin: 4px 0 0 18px;
+			}
+
+			li {
+				margin: 1px 0;
+			}
+
+			.publication {
+				margin-top: 6px;
+				padding-left: 12px;
+			}
+
+			.publication strong {
+				line-height: 1.32;
+			}
+
+			.publication>span {
+				margin-top: 2px;
+			}
+
+			.skills {
+				display: block;
+				margin-top: 8px;
+			}
+
+			#skills {
+				break-inside: auto;
+			}
+
+			.skill-item {
+				position: relative;
+				padding: 0 0 0 16px;
+				border: 0;
+				background: transparent;
+				line-height: 1.58;
+			}
+
+			.skill-item+.skill-item {
+				margin-top: 4px;
+			}
+
+			.skill-item::before {
+				content: "•";
+				position: absolute;
+				left: 2px;
 			}
 
 			a {
@@ -312,14 +519,20 @@
 		<section class="section" aria-labelledby="publications">
 			<h2 class="section-title" id="publications">科研成果</h2>
 			<div class="publication">
+				<strong>StructSparse: Structure-Aware Prompt Sparsity for Hierarchical KVCache in Agent Serving</strong>
+				<span>提出面向结构化 Agent Prompt 的稀疏感知机制，将 KVCache 按语义重要性分层放置于 HBM/Host/SSD，并结合 RoPE 解耦完成复用判断与请求路由调度，降低 TTFT
+					与缓存 IO。<span class="pub-status">拟投 ASPLOS。</span></span>
+			</div>
+			<div class="publication">
 				<strong>SuperRAG: Document-oriented KVCache Reuse for Efficient Retrieval-Augmented Generation
 					Serving</strong>
-				<span>提出面向文档的 KVCache 复用机制，降低 RAG Serving 中重复文档上下文带来的推理开销。<span class="pub-status">投递 ATC。</span></span>
+				<span>提出面向文档的 KVCache 复用机制，降低 RAG Serving 中重复文档上下文带来的推理开销。<span class="pub-status">已投至
+						ATC。</span></span>
 			</div>
 			<div class="publication">
 				<strong>RAGPULSE: A Real-World RAG Workload Capturing Authentic Temporal Reuse Patterns for Efficient
 					Serving</strong>
-				<span>构建真实 RAG 工作负载，刻画业务场景中的时间复用模式，为缓存与服务调度优化提供数据支撑。<span class="pub-status">投递 EMNLP。</span></span>
+				<span>构建真实 RAG 工作负载，刻画业务场景中的时间复用模式，为缓存与服务调度优化提供数据支撑。<span class="pub-status">已投至 EMNLP。</span></span>
 			</div>
 		</section>
 
