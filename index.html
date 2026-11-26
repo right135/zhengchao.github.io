@@ -172,11 +172,15 @@
 		}
 
 		.publication {
-			margin-top: 18px;
-			padding: 12px 14px;
-			border-left: 3px solid var(--accent);
-			background: #fbfdfd;
+			margin-top: 16px;
+			padding-bottom: 14px;
+			border-bottom: 1px solid #edf0f2;
 			break-inside: avoid;
+		}
+
+		.publication:last-child {
+			padding-bottom: 0;
+			border-bottom: 0;
 		}
 
 		.pub-heading {
@@ -191,13 +195,17 @@
 			font-size: 17px;
 			font-weight: 650;
 			line-height: 1.35;
-			text-wrap: balance;
+			text-wrap: wrap;
+		}
+
+		.pub-title-line {
+			display: block;
 		}
 
 		.pub-name {
-			font-size: 1.12em;
+			font-size: 1.05em;
 			font-weight: 800;
-			color: #0b5c56;
+			color: var(--text);
 		}
 
 		.pub-status {
@@ -218,18 +226,22 @@
 		}
 
 		.pub-keywords {
-			display: grid;
-			grid-template-columns: repeat(4, minmax(0, 1fr));
-			gap: 7px;
-			margin-top: 8px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 5px;
+			margin-top: 4px;
 		}
 
 		.pub-keywords .badge {
-			justify-content: center;
-			min-width: 0;
-			padding: 4px 6px;
-			font-size: 12px;
-			text-align: center;
+			min-height: 0;
+			padding: 1px 7px;
+			border: 1px solid #e5e7eb;
+			background: #f5f6f7;
+			color: #626970;
+			border-radius: 3px;
+			font-size: 11.5px;
+			font-weight: 500;
+			line-height: 1.45;
 		}
 
 		.project-title {
@@ -338,9 +350,6 @@
 				gap: 4px;
 			}
 
-			.pub-keywords {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-			}
 		}
 
 		@media (max-width: 420px) {
@@ -433,7 +442,7 @@
 
 			.badge-group {
 				gap: 7px;
-				margin-top: 6px;
+				margin-top: 4px;
 			}
 
 			.badge {
@@ -443,7 +452,7 @@
 			}
 
 			.section {
-				padding-top: 7px;
+				padding-top: 6px;
 				break-inside: avoid;
 			}
 
@@ -453,7 +462,7 @@
 			}
 
 			.entry {
-				margin-top: 5px;
+				margin-top: 4px;
 				break-inside: avoid;
 			}
 
@@ -478,9 +487,8 @@
 			}
 
 			.publication {
-				margin-top: 8px;
-				padding: 0 0 0 10px;
-				background: transparent;
+				margin-top: 5px;
+				padding-bottom: 3px;
 			}
 
 			.pub-heading {
@@ -499,22 +507,22 @@
 			}
 
 			.pub-summary {
-				margin-top: 2px;
+				margin-top: 3px;
 				font-size: 13px;
 				line-height: 1.38;
 			}
 
 			.pub-keywords {
-				grid-template-columns: repeat(4, minmax(0, 1fr));
-				gap: 6px;
+				gap: 5px;
 				margin-top: 3px;
 			}
 
 			.pub-keywords .badge {
-				min-height: 20px;
-				padding: 2px 4px;
-				font-size: 11px;
-				line-height: 1.35;
+				min-height: 0;
+				padding: 0 5px;
+				border: 0;
+				font-size: 10.5px;
+				line-height: 1.3;
 			}
 
 			section[aria-labelledby="competitions"] ul {
@@ -606,65 +614,56 @@
 					<h3 class="pub-title"><span class="pub-name">APEX</span>: Append-Aware P/D-Disaggregated Scheduling for Efficient Agent Serving</h3>
 					<span class="pub-status">投稿至 ATC'27</span>
 				</div>
-				<p class="pub-summary">面向多轮 Agent 的 Append 请求，针对 <b>Decode 引发的 KV 同步滞后</b>，提出 <b>TPOT-Aware 调度</b>。</p>
 				<div class="pub-keywords" aria-label="APEX 关键词">
-					<span class="badge">Multi-round Agent</span>
 					<span class="badge">P/D Disaggregation</span>
-					<span class="badge">KV Synchronization</span>
 					<span class="badge">TPOT-aware Append</span>
 				</div>
+				<p class="pub-summary">针对 P/D 解耦中 <b>Decode 引发的 KV 同步滞后</b>，提出 <b>TPOT-Aware Append 请求调度</b>；<br>结合跨轮上下文状态协调 Prefill/Decode，提升多轮 Agent 服务效率。</p>
 			</div>
 			<div class="publication">
 				<div class="pub-heading">
 					<h3 class="pub-title"><span class="pub-name">PACK</span>: A Kernel Agent for Coordinated Kernel Generation Across Shapes</h3>
 					<span class="pub-status">投稿至 DAC'27</span>
 				</div>
-				<p class="pub-summary">以<b>硬件区域引导跨 Shape Kernel 搜索</b>，按部署预算选择互补实现并反馈优化弱势 Shape；A800 九类算子几何平均加速 <b>1.59×</b>，六类排名第一。</p>
 				<div class="pub-keywords" aria-label="PACK 关键词">
 					<span class="badge">Kernel Agent</span>
 					<span class="badge">Cross-shape Search</span>
-					<span class="badge">Hardware Guidance</span>
-					<span class="badge">Budgeted Selection</span>
 				</div>
+				<p class="pub-summary">以<b>硬件区域引导跨 Shape Kernel 搜索</b>，按部署预算选择互补实现并反馈优化；<br>A800 九类算子几何平均加速 <b>1.59×</b>，六类算子排名第一。</p>
 			</div>
 			<div class="publication">
 				<div class="pub-heading">
-					<h3 class="pub-title"><span class="pub-name">Artemis</span>: Document-oriented KVCache Reuse for Efficient Retrieval-Augmented Generation Serving</h3>
+					<h3 class="pub-title"><span class="pub-title-line"><span class="pub-name">Artemis</span>: Document-oriented KVCache Reuse for Efficient</span> <span class="pub-title-line">Retrieval-Augmented Generation Serving</span></h3>
 					<span class="pub-status">投稿至 ATC'27</span>
 				</div>
-				<p class="pub-summary">面向检索结果动态组合的 RAG 服务，提出<b>文档级 KVCache 复用</b>机制，减少重复上下文预填充。</p>
 				<div class="pub-keywords" aria-label="Artemis 关键词">
 					<span class="badge">RAG Serving</span>
 					<span class="badge">Document KV Reuse</span>
-					<span class="badge">Dynamic Retrieval</span>
-					<span class="badge">Prefill Reuse</span>
 				</div>
+				<p class="pub-summary">面向检索结果动态组合的 RAG 服务，提出<b>文档级 KVCache 复用</b>机制；<br>识别并复用已有文档缓存，减少重复上下文预填充。</p>
 			</div>
 			<div class="publication">
 				<div class="pub-heading">
 					<h3 class="pub-title"><span class="pub-name">UMAO</span>: Coupling Cache Lifecycle and Admission for Agents on Unified Memory</h3>
 					<span class="pub-status">投稿至 ICLR'27</span>
 				</div>
-				<p class="pub-summary">面向 GB10 统一内存，<b>协同缓存生命周期与请求准入</b>，以连续前缀协调卸载、恢复和重计算；前缀复用率 <b>87.5%-90.3%</b>，平均/P99 TTFT 最高加速 <b>2.1×/6.4×</b>。</p>
 				<div class="pub-keywords" aria-label="UMAO 关键词">
 					<span class="badge">Unified Memory</span>
 					<span class="badge">Agent Offloading</span>
-					<span class="badge">Prefix Recovery</span>
 					<span class="badge">Cache-aware Admission</span>
 				</div>
+				<p class="pub-summary">面向 GB10 统一内存，<b>协同缓存生命周期与请求准入</b>，协调连续前缀的卸载、恢复与重计算；<br>前缀复用率 <b>87.5%-90.3%</b>，平均/P99 TTFT 最高加速 <b>2.1×/6.4×</b>。</p>
 			</div>
 			<div class="publication">
 				<div class="pub-heading">
-					<h3 class="pub-title"><span class="pub-name">RAGPulse</span>: A Real-World RAG Workload Capturing Authentic Temporal Reuse Patterns for Efficient Serving</h3>
+					<h3 class="pub-title"><span class="pub-title-line"><span class="pub-name">RAGPulse</span>: A Real-World RAG Workload Capturing</span> <span class="pub-title-line">Authentic Temporal Reuse Patterns for Efficient Serving</span></h3>
 					<span class="pub-status">EMNLP'26</span>
 				</div>
-				<p class="pub-summary">构建<b>真实 RAG 工作负载</b>，刻画<b>请求到达、文档热度与时间复用</b>规律，支撑 KVCache 与调度评测。</p>
 				<div class="pub-keywords" aria-label="RAGPulse 关键词">
-					<span class="badge">Real-world RAG</span>
-					<span class="badge">Workload Modeling</span>
+					<span class="badge">RAG Workloads</span>
 					<span class="badge">Temporal Reuse</span>
-					<span class="badge">Cache Evaluation</span>
 				</div>
+				<p class="pub-summary">构建<b>真实 RAG 工作负载</b>，刻画<b>请求到达、文档热度与时间复用</b>规律；<br>为 KVCache 策略、请求调度与 RAG 服务系统评测提供数据支撑。</p>
 			</div>
 		</section>
 
