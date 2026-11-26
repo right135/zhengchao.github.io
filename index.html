@@ -356,14 +356,14 @@
 			}
 
 			.header {
-				grid-template-columns: 1fr 124px;
+				grid-template-columns: 1fr 104px;
 				gap: 22px;
-				padding-bottom: 15px;
+				padding-bottom: 12px;
 			}
 
 			.profile-photo {
-				width: 124px;
-				transform: translateX(-20px);
+				width: 104px;
+				transform: translateX(-12px);
 			}
 
 			h1 {
@@ -393,13 +393,13 @@
 			}
 
 			.section {
-				padding-top: 13px;
+				padding-top: 10px;
 				break-inside: avoid;
 			}
 
 			.section-title {
 				font-size: 16.5px;
-				margin-bottom: 6px;
+				margin-bottom: 4px;
 			}
 
 			.entry {
@@ -428,17 +428,23 @@
 			}
 
 			.publication {
-				margin-top: 5px;
+				margin-top: 4px;
 				padding-left: 12px;
 				font-size: 12.5px;
 			}
 
 			.publication strong {
+				font-size: 11.5px;
 				line-height: 1.28;
+				white-space: nowrap;
 			}
 
 			.publication>span {
 				margin-top: 2px;
+				font-size: 12.3px;
+				line-height: 1.28;
+				height: 31.5px;
+				overflow: hidden;
 			}
 
 			.skills {
@@ -496,13 +502,6 @@
 			<img class="profile-photo" src="imgs/shz3.png" alt="王正超证件照">
 		</header>
 
-		<section class="section" aria-labelledby="profile">
-			<h2 class="section-title" id="profile">个人简介</h2>
-			<p class="summary">
-				研究聚焦 Agent 系统推理、RAG Serving 与 KVCache 复用，具备真实负载分析和大模型应用平台落地经验。
-			</p>
-		</section>
-
 		<section class="section" aria-labelledby="education">
 			<h2 class="section-title" id="education">教育背景</h2>
 			<div class="entry">
@@ -524,19 +523,29 @@
 		<section class="section" aria-labelledby="publications">
 			<h2 class="section-title" id="publications">科研成果</h2>
 			<div class="publication">
-				<strong>APEX: Append-Aware P/D-Disaggregated Scheduling for Efficient Agent Serving</strong>
-				<span>提出面向 Agent 多轮迭代中 Append 请求的调度机制，针对 P/D 解耦架构下 Decode 阶段引发的 KVCache 同步滞后问题，设计 TPOT-Aware 的 Append 请求调度策略，提升 Agent Serving 效率。</span>
+				<strong>UMAO: Coupling Cache Lifecycle and Admission for Agents on Unified Memory <span
+						class="pub-status">（投稿至 ICLR'27）</span></strong>
+				<span>面向 GB10 统一内存的多轮 Agent，协同缓存生命周期与请求准入，以连续前缀协调卸载、恢复与重计算；<br>实现 87.5%-90.3% 前缀复用，平均/P99 TTFT 最高加速 2.1×/6.4×。</span>
 			</div>
 			<div class="publication">
-				<strong>SuperRAG: Document-oriented KVCache Reuse for Efficient Retrieval-Augmented Generation
-					Serving</strong>
-				<span>提出面向文档的 KVCache 复用机制，降低 RAG Serving 中重复文档上下文带来的推理开销。<span class="pub-status">已投至
-						ATC。</span></span>
+				<strong>APEX: Append-Aware P/D-Disaggregated Scheduling for Efficient Agent Serving <span
+						class="pub-status">（投稿至 ATC'27）</span></strong>
+				<span>针对 P/D 解耦中 Decode 引发的 KVCache 同步滞后，提出 TPOT-Aware Append 请求调度；<br>结合跨轮上下文状态协调 Prefill/Decode，提升多轮 Agent 服务效率。</span>
 			</div>
 			<div class="publication">
-				<strong>RAGPULSE: A Real-World RAG Workload Capturing Authentic Temporal Reuse Patterns for Efficient
-					Serving</strong>
-				<span>构建真实 RAG 工作负载，刻画业务场景中的时间复用模式，为缓存与服务调度优化提供数据支撑。<span class="pub-status">目前已中稿EMNLP26。</span></span>
+				<strong>PACK: A Kernel Agent for Coordinated Kernel Generation Across Shapes <span
+						class="pub-status">（投稿至 DAC'27）</span></strong>
+				<span>以硬件区域引导跨 Shape Kernel 搜索，并按部署预算选择互补实现、反馈优化弱势 Shape；<br>A800 九类算子几何平均加速 1.59×，六类算子排名第一。</span>
+			</div>
+			<div class="publication">
+				<strong>Artemis: Document-oriented KVCache Reuse for Efficient Retrieval-Augmented Generation Serving <span
+						class="pub-status">（投稿至 ATC'27）</span></strong>
+				<span>提出面向文档的 KVCache 复用机制，在检索结果动态组合下识别并复用已有文档缓存；<br>减少重复上下文预填充，降低 RAG Serving 推理开销。</span>
+			</div>
+			<div class="publication">
+				<strong>RAGPulse: A Real-World RAG Workload Capturing Authentic Temporal Reuse Patterns for Efficient Serving <span
+						class="pub-status">（EMNLP'26）</span></strong>
+				<span>构建真实 RAG 工作负载，系统刻画请求到达、文档热度与时间复用规律；<br>为 KVCache 策略、请求调度和 RAG 服务系统评测提供数据支撑。</span>
 			</div>
 		</section>
 
@@ -544,9 +553,17 @@
 			<h2 class="section-title" id="projects">项目经历</h2>
 			<div class="entry">
 				<div class="entry-head">
+					<div class="project-title">基于桌面级算力的模型栈推理性能优化项目服务（滴普科技，负责人）</div>
+					<div class="entry-meta">Agent Offloading</div>
+				</div>
+				<ul>
+					<li>面向 NVIDIA GB10 共享统一内存架构，完成多轮 Agent Offloading 场景适配与性能优化。</li>
+					<li>协同缓存生命周期与请求准入，以连续前缀管理历史卸载、恢复和重计算，降低 TTFT 与 JCT。</li>
+				</ul>
+			</div>
+			<div class="entry">
+				<div class="entry-head">
 					<div class="project-title">天津大学天问大模型（负责人）</div>
-					<div class="entry-meta"><a href="https://twen.ai/" target="_blank"
-							rel="noopener noreferrer">https://twen.ai/</a></div>
 				</div>
 				<ul>
 					<li>参与天津大学大模型应用平台建设，围绕智能问答、知识检索、服务推理与应用接入开展系统开发。</li>
@@ -574,16 +591,6 @@
 				<li>2022 RoboCom 机器人开发者大赛 CAIP 编程设计陕西省赛一等奖、全国总决赛三等奖。</li>
 				<li>2022 年第四届全国高校计算机能力挑战赛 C++ 组全国一等奖。</li>
 			</ul>
-		</section>
-
-		<section class="section" aria-labelledby="skills">
-			<h2 class="section-title" id="skills">专业技能</h2>
-			<div class="skills">
-				<div class="skill-item">熟悉 Agent system infer 与 LLM Serving，关注多轮任务拆解、推理链路编排和服务效率优化。</div>
-				<div class="skill-item">熟悉 真实 LLM workload 与 KVCache 复用分析，能够定位缓存命中、调度策略和服务瓶颈并指导优化。</div>
-				<div class="skill-item">熟悉 Claude、Codex、Copilot 等 vibe coding 工具，能够快速完成系统原型、评测脚本、重构和工程迭代。</div>
-				<div class="skill-item">具备 大模型应用平台 与 智能体应用 建设经验，能够推进需求拆解、功能开发、部署落地和效果验证。</div>
-			</div>
 		</section>
 	</main>
 </body>
